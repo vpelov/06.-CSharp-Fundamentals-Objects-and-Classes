@@ -25,7 +25,7 @@ namespace P07.VenhicleCataloque
 
     class Car
     {
-            
+
         public Car(string nameBrand, string nameModel, int powerHorse)
         {
             this.Brand = nameBrand;
@@ -61,7 +61,7 @@ namespace P07.VenhicleCataloque
             List<Car> carCataloque = new List<Car>();
             List<Truck> truckCataloque = new List<Truck>();
 
-                      
+
             while (command != "end")
             {
                 string[] inputCommand = command.Split('/', StringSplitOptions.RemoveEmptyEntries).ToArray();
@@ -82,8 +82,30 @@ namespace P07.VenhicleCataloque
                 command = Console.ReadLine();
             }
 
+            carCataloque = carCataloque.OrderBy(car => car.Brand).ToList();
+            truckCataloque = truckCataloque.OrderBy(truck => truck.Brand).ToList();
 
 
+            if (carCataloque.Count > 0)
+            {
+                Console.WriteLine("Cars:");
+                foreach (Car cars in carCataloque)
+                {
+                    Console.WriteLine($"{cars.Brand}: {cars.Model} - {cars.HorsePower}hp");
+                }
+            }
+
+            if (truckCataloque.Count > 0)
+            {
+                Console.WriteLine("Trucks:");
+
+                foreach (Truck truks in truckCataloque)
+                {
+                    Console.WriteLine($"{truks.Brand}: {truks.Model} - {truks.Weight}kg");
+                }
+
+
+            }
 
         }
     }
