@@ -104,9 +104,7 @@ namespace P07.VenhicleCataloque
                     Console.WriteLine($"{truks.Brand}: {truks.Model} - {truks.Weight}kg");
                 }
 
-
             }
-
         }
     }
 }
